@@ -1,0 +1,26 @@
+// PRUEBA TEMPORAL
+
+
+import { accessService } from "./access.service.js";
+
+
+export const accessController = {
+  async testPermission(req, res) {
+    const userId = req.user.id;
+
+
+    const hasPermission = await accessService.hasPermission(
+      userId,
+      permissionCode,
+    );
+
+
+    res.json({
+      userId,
+      permission: "list_user",
+      granted: hasPermission,
+    });
+  },
+};
+
+
